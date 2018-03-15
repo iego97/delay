@@ -30,6 +30,7 @@ namespace Efectos
         Efecto efectoProvider;
         Delay delayProvider;
 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -98,6 +99,15 @@ namespace Efectos
                 waveOut.Init(delayProvider);
                 waveOut.Play();
             }
+        }
+
+        private void sldDelay_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if(delayProvider != null)
+            { 
+                delayProvider.offsetTiempoMS =  (int)sldDelay.Value;
+            }
+
         }
     }
 }
